@@ -26,7 +26,7 @@ function colorPixels() {
     const allPixels = document.querySelectorAll("div.pixel");
     allPixels.forEach((pixel) => {
         pixel.addEventListener('mouseover', () => {
-            pixel.setAttribute('class', 'pixel; filledPixel');
+            pixel.style.backgroundColor = getRandomColor();
         })
     })
 }
@@ -36,7 +36,16 @@ etchSketch();
 const sizeButton = document.querySelector("#sizeButton");
 sizeButton.addEventListener('click', () => {
     document.querySelector('#screen').innerHTML = "";
-    let size = prompt("Enter how many pixels wide you want the screen to be (max 100)");
+    let size = prompt("Enter how many boxes you want on each side (max 100)");
     if (size > 100) {size = 100};
     drawScreen(size);
 })
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
