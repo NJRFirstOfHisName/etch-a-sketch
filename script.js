@@ -4,7 +4,7 @@ function etchSketch() {
 }
 
 function drawScreen(size) {
-    let dimensions = 1000/size
+    let dimensions = 720/size
     const screen = document.querySelector('#screen');
     for (i = 1; i <= size; i++) {
         const row = document.createElement('div');
